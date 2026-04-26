@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 # Create your models here.
 class Diseases(models.Model):
-    title=models.CharField(blank=False,null=False)
+    title=models.CharField(max_length=250,blank=False,null=False)
     Description=models.TextField(blank=False,null=False)
     image=models.ImageField(
         blank=True,
@@ -15,7 +15,7 @@ class Diseases(models.Model):
         return self.title
     
 class Emergency(models.Model):
-       title=models.CharField(blank=False,null=False)
+       title=models.CharField(max_length=250,blank=False,null=False)
        Description=models.TextField(blank=False,null=False)
        video=models.FileField(blank=True,null=True,upload_to='video/',
                                validators=[FileExtensionValidator(['mp4', 'mov', 'avi', 'mkv'])]
